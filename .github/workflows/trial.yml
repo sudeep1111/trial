@@ -1,0 +1,37 @@
+name: Hello World
+on:
+  workflow_dispatch:
+    inputs:
+      env:
+        type: choice
+        description: Make a choice
+        options:
+        - dev
+        - qa
+        - stage
+        - prod
+
+ 
+
+jobs:
+  pr_commented:
+    # This job only runs for pull request comments
+    name: PR comment
+    if: ${{ github.event.issue.pull_request }}
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          echo A comment on PR $NUMBERS
+        env:
+          NUMBER: ${{ github.event.issue.number }}
+  build:
+    runs-on: ubuntu-latest
+
+ 
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Print Hello World
+      run: echo "welcome to my world123456"
