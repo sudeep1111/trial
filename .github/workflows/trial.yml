@@ -11,8 +11,6 @@ on:
         - stage
         - prod
 
- 
-
 jobs:
   pr_commented:
     # This job only runs for pull request comments
